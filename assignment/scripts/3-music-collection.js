@@ -2,13 +2,13 @@ console.log('***** Music Collection *****')
 let collection = [];
 
 function addToCollection(title, artist, yearPublished) {
-  let newObject = {
+  let object = {
     title: title,
     artist: artist,
     yearPublished: yearPublished
-  }//end newObject
-  collection.push(newObject);
-  return console.log("Object added to collection:", newObject);
+  }//end object
+  collection.push(object);
+  return console.log("Object added to collection:", object);
 }//end addToCollection
 
 addToCollection("I and Love and You", "The Avett Brothers", 2009);
@@ -20,6 +20,11 @@ addToCollection("Dopamine", "B0RNS", 2015);
 
 console.log("Collection:", collection);
 
-function showCollection(array[i]) {
+function showCollection(array) {
   console.log("Number of items in array:", array.length);
-}
+  for (i = 0; i < array.length; i++) {
+    console.log(array[i].title + " by " + array[i].artist + ", published in " + array[i].yearPublished);
+  }//end for
+}//end showCollection
+
+showCollection(collection);
