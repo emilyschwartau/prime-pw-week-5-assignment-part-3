@@ -28,3 +28,15 @@ function showCollection(array) {
 }//end showCollection
 
 showCollection(collection);
+
+function findByArtist(artist) {
+  let results = [];
+  for (i = 0; i < collection.length; i++) {
+    if (artist === collection[i].artist) {
+      results.push(collection[i]);
+    }//end if
+   }//end for
+  return results;
+}//end findByArtist
+
+console.log(findByArtist("Kesha"));
