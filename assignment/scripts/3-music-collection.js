@@ -15,7 +15,7 @@ addToCollection("I and Love and You", "The Avett Brothers", 2009);
 addToCollection("Wide Open Spaces", "The Chicks", 1998);
 addToCollection("Rainbow", "Kesha", 2017);
 addToCollection("Golden Hour", "Kacey Musgraves", 2018);
-addToCollection("The Great Burrito Extorsion Case", "Bowling for Soup", 2006);
+addToCollection("Fly", "The Chicks", 1999);
 addToCollection("Dopamine", "B0RNS", 2015);
 
 console.log("Collection:", collection);
@@ -39,4 +39,6 @@ function findByArtist(artist) {
   return results;
 }//end findByArtist
 
-console.log(findByArtist("Kesha"));
+console.log("Test artist in collection - should add object to results array", findByArtist("Kesha"));
+console.log("Test artist in collection more than once - should add both objects to results array", findByArtist("The Chicks"));
+console.log("Test artist NOT in collection - should return empty arrray", findByArtist("The Weeknd"));
