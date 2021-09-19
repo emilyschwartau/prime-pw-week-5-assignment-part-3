@@ -41,34 +41,44 @@ function findByArtist(artist) {
 
 console.log("Test artist in collection - should add object to results array", findByArtist("Kesha"));
 console.log("Test artist in collection more than once - should add both objects to results array", findByArtist("The Chicks"));
-console.log("Test artist NOT in collection - should return empty arrray", findByArtist("The Weeknd"));
+console.log("Test artist NOT in collection - should return empty array", findByArtist("The Weeknd"));
 
-function search(artist, year) {
+function search(title, artist, yearPublished) {
   //define new array for results
   let resultsArray = [];
   //make function to add objects to new array
-  function addToResultsArray(artist, yearPublished) {
+  function addToResultsArray(title, artist, yearPublished) {
     let newObject = {
+      title: title,
       artist: artist,
       yearPublished: yearPublished
     }//end newObject
     resultsArray.push(newObject);
-    return console.log("newObject added to resultsArray:", newObject);
+    return(newObject);
   }//end addToResultsArray
   //loop through collection; if artist & year match collection array entries: add object to new array
   //if input does not match collection array entries: return empty array
   //if no input: return all objects in collection array
   for (i = 0; i < collection.length; i++) {
-    if (artist === collection[i].artist && year === collection[i].yearPublished) {
-      addToResultsArray(collection[i].artist, collection[i].yearPublished);
+    if (artist === collection[i].artist) {
+      addToResultsArray(collection[i].title, collection[i].artist, collection[i].yearPublished);
     }//end if
-   else if (artist === undefined && year === undefined) {
+    else if (title === collection[i].title) {
+      addToResultsArray(collection[i].title, collection[i].artist, collection[i].yearPublished);
+    }//end else if
+    else if (yearPublished === collection[i].yearPublished) {
+      addToResultsArray(collection[i].title, collection[i].artist, collection[i].yearPublished);
+    }//end else if
+   else if (artist === undefined && yearPublished === undefined && title === undefined) {
+      console.log(collection[i]);
+    }//end else if
+    else if (artist === "" && yearPublished === undefined && title === "") {
       console.log(collection[i]);
     }//end else if
   }//end for
   return resultsArray;
 }//end search
 
-console.log("Test - should return artist and year in results array", search("Kesha", 2017));
-console.log("Test - should return an empty results array", search("Ray Charles", 1957));
+console.log("Test - should return album details in results array", search("","The Chicks", undefined));
+console.log("Test - should return an empty results array", search("", "Ray Charles", 1957));
 console.log("Test - should return all objects in collection array, and return empty results Array", search());
