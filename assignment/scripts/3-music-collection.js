@@ -1,11 +1,14 @@
 console.log('***** Music Collection *****')
 let collection = [];
-
+let tracks = [];
+//fuction addTo Collection(title, artist, yearPublished, tracks)
 function addToCollection(title, artist, yearPublished) {
+
   let object = {
     title: title,
     artist: artist,
-    yearPublished: yearPublished
+    yearPublished: yearPublished,
+    //tracks: tracks
   }//end object
   collection.push(object);
   return console.log("Object added to collection:", object);
@@ -17,6 +20,17 @@ addToCollection("Rainbow", "Kesha", 2017);
 addToCollection("Golden Hour", "Kacey Musgraves", 2018);
 addToCollection("Fly", "The Chicks", 1999);
 addToCollection("Dopamine", "B0RNS", 2015);
+
+//function addTracks(trackName, duration) {
+  //let trackDetails = {
+  //trackName: trackName,
+  //duration: duration
+  //}//end trackDetails
+  //collection.object.tracks.push(trackDetails);
+  //console.log("Track added to album:", trackDetails);
+//  }//end addTracks
+
+  //addTracks("Hi", 1.05);
 
 console.log("Collection:", collection);
 
